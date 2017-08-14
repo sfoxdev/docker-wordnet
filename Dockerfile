@@ -5,7 +5,10 @@ MAINTAINER SFox Dev <admin@sfoxdev.com>
 ENV WNHOME=/usr/local/bin
 
 RUN yum -y update \
-  && yum -y install gcc make tcl tk tk-devel curl tar mc \
+  && yum -y install gcc make tcl tk curl tar mc \
+  && yum groupinstall -y "Development Tools" \
+  && yum -y install tk-devel \
+  && yum clean all \
   && curl -Lo WNdb-3.0.tar.gz http://wordnetcode.princeton.edu/3.0/WNdb-3.0.tar.gz \
   && tar -xzvf WNdb-3.0.tar.gz -C /usr/local/bin \
   && rm WNdb-3.0.tar.gz \
@@ -23,3 +26,5 @@ RUN yum -y update \
 WORKDIR /usr/local/bin
 
 ENTRYPOINT ["/usr/local/bin/wn"]
+
+#CMD ["/bin/bash"]
