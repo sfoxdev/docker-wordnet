@@ -1,6 +1,5 @@
 FROM centos:7
-
-MAINTAINER SFox Dev <admin@sfoxdev.com>
+MAINTAINER SFoxDev <admin@sfoxdev.com>
 
 ENV WNHOME=/usr/local/bin
 
